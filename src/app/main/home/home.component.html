@@ -1,0 +1,10 @@
+<div class="layout-wrapper">
+  <app-header></app-header>
+  <div class="layout-main">
+    <app-sidebar [menus]='menus'></app-sidebar>
+    <div class="layout-content">
+      <app-breadcrumb [menus]='menus'></app-breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

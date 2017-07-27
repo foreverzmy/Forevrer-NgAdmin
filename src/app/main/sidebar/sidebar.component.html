@@ -1,0 +1,9 @@
+<div class="contanier">
+  <md-card>Side bar</md-card>
+  <md-list>
+    <md-list-item *ngFor="let menu of menus | sidebar" [routerLink]="[menu.path]">
+      <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+      <h4 md-line>{{ menu.data.label }}</h4>
+    </md-list-item>
+  </md-list>
+</div>
