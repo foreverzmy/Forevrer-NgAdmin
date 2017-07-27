@@ -1,9 +1,17 @@
-<div class="contanier">
-  <md-card>Side bar</md-card>
-  <md-list>
-    <md-list-item *ngFor="let menu of menus | sidebar" [routerLink]="[menu.path]">
-      <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
-      <h4 md-line>{{ menu.data.label }}</h4>
-    </md-list-item>
-  </md-list>
+<div class="box" [ngClass]="{minify:ismMinify,magnify:!ismMinify}">
+  <md-card>
+    <div class="sidebar-header">
+      <div md-card-avatar class="avatar"></div>
+      <h4>foreverzmyer@gmail.com</h4>
+      <button md-icon-button (click)='adjust()'><md-icon>arrow_back</md-icon></button>
+    </div>
+    <md-card-content>
+      <md-list>
+        <md-list-item *ngFor="let menu of menus | sidebar" [routerLink]="[menu.path]">
+          <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+          <h4 md-line>{{ menu.data.label }}</h4>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
 </div>

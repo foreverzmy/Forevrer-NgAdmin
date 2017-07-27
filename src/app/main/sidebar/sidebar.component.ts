@@ -9,10 +9,15 @@ import { MainRoutes } from '../main.routes';
 })
 export class SidebarComponent implements OnInit {
   @Input() menus;
+  public ismMinify = false;
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  adjust() {
+    this.ismMinify = !this.ismMinify;
   }
 
 }

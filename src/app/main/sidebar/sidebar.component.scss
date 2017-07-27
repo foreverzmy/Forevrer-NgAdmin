@@ -1,8 +1,107 @@
-.contanier {
+.box {
   width: 15vw;
   float: left;
   height: 100vh;
   background-color: #fff;
+  width: 260px;
+  overflow-x: hidden;
+  md-card {
+    height: 100vh;
+    padding: 0;
+  }
+}
+
+.sidebar-header {
+  position: relative;
+  text-align: center;
+  background-image: url('../../../assets/img/sidebar_bg.png');
+  background-size: cover;
+  padding: 15px;
+  color: #fff;
+  button {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.avatar {
+  display: inline-block;
+  background-image: url('../../../assets/img/Angular.jpg');
+  background-size: cover;
+  transform: rotate(360deg);
+  animation: rotation 3s linear infinite;
+}
+
+.box.minify {
+  width: 50px;
+  animation: minify .3s linear;
+  .sidebar-header {
+    button {
+      top: 50px;
+      transform: rotate(180deg);
+      animation: buttonMove .3s linear;
+    }
+  }
+}
+
+.box.magnify {
+  animation: magnify .3s linear;
+  .sidebar-header {
+    button {
+      top: 0;
+      transform: rotate(0deg);
+      animation: buttonBack .3s linear;
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes minify {
+  from {
+    width: 260px;
+  }
+  to {
+    width: 50px;
+  }
+}
+
+@keyframes magnify {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 260px;
+  }
+}
+
+@keyframes buttonMove {
+  from {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    top: 50px;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes buttonBack {
+  from {
+    top: 50px;
+    transform: rotate(180deg);
+  }
+  to {
+    top: 0;
+    transform: rotate(0deg);
+  }
 }
 
 @media screen and (max-width: 990px) {}
