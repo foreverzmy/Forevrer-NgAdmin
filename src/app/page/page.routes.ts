@@ -8,7 +8,7 @@ export const PageRoutes: Route[] = [
     path: 'tableList',
     component: TableListComponent,
     data: {
-      label: '表格',
+      label: 'Table List',
       icon: 'border_all',
       sidebar: true
     }
@@ -16,7 +16,7 @@ export const PageRoutes: Route[] = [
     path: 'forms',
     component: FormsComponent,
     data: {
-      label: '表单',
+      label: 'Form List',
       icon: 'border_color',
       sidebar: true
     }

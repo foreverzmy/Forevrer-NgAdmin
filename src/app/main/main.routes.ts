@@ -7,7 +7,7 @@ export const MainRoutes: Route[] = [
   {
     path: '',
     component: HomeComponent,
-    data: { label: '主页', icon: 'home' },
+    data: { label: 'Home', icon: 'home' },
     children: [...PageRoutes]
   }
 ];
