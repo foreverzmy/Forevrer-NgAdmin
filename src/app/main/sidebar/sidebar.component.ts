@@ -10,14 +10,19 @@ import { MainRoutes } from '../main.routes';
 export class SidebarComponent implements OnInit {
   @Input() menus;
   public ismMinify = false;
+  public open: string;
   constructor() {
   }
 
   ngOnInit() {
   }
-
+  // 放大缩小侧边栏
   adjust() {
     this.ismMinify = !this.ismMinify;
+  }
+  // 二级菜单伸缩
+  toogle(path: string) {
+    this.open = this.open === path ? '' : path;
   }
 
 }

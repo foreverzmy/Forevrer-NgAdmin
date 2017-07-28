@@ -4,19 +4,19 @@
   height: 100vh;
   background-color: #fff;
   width: 260px;
-  overflow-x: hidden;
   md-card {
     height: 100vh;
     padding: 0;
   }
+  h4 {}
 }
 
 .sidebar-header {
   position: relative;
   text-align: center;
   background-image: url('../../../assets/img/sidebar_bg.png');
-  background-size: cover;
-  padding: 15px;
+  background-size: auto 100%;
+  padding: 10px;
   color: #fff;
   button {
     position: absolute;
@@ -32,25 +32,43 @@
   animation: rotation 3s linear infinite;
 }
 
+.accordion {
+  position: relative;
+  .menu-child {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    background-color: #fff;
+  }
+}
+
 .box.minify {
-  width: 50px;
-  animation: minify .3s linear;
+  animation: minify .3s linear both;
   .sidebar-header {
+    &>h4 {
+      animation: fadeOut .2s linear both;
+    }
     button {
-      top: 50px;
-      transform: rotate(180deg);
-      animation: buttonMove .3s linear;
+      animation: buttonMove .3s linear both;
+    }
+  }
+  .accordion {
+    .menu-child {
+      top: 0;
+      left: 50px;
     }
   }
 }
 
 .box.magnify {
   animation: magnify .3s linear;
+  animation-fill-mode: both;
   .sidebar-header {
+    &>h4 {
+      animation: fadeIn .2s linear .1s both;
+    }
     button {
-      top: 0;
-      transform: rotate(0deg);
-      animation: buttonBack .3s linear;
+      animation: buttonBack .3s linear both;
     }
   }
 }
@@ -69,7 +87,7 @@
     width: 260px;
   }
   to {
-    width: 50px;
+    width: 60px;
   }
 }
 
@@ -85,10 +103,12 @@
 @keyframes buttonMove {
   from {
     top: 0;
+    right: 0;
     transform: rotate(0deg);
   }
   to {
     top: 50px;
+    right: 10px;
     transform: rotate(180deg);
   }
 }
@@ -101,6 +121,24 @@
   to {
     top: 0;
     transform: rotate(0deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

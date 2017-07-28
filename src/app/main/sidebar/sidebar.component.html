@@ -7,10 +7,23 @@
     </div>
     <md-card-content>
       <md-list>
-        <md-list-item *ngFor="let menu of menus | sidebar" [routerLink]="[menu.path]">
-          <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
-          <h4 md-line>{{ menu.data.label }}</h4>
-        </md-list-item>
+        <div *ngFor="let menu of menus">
+          <md-list-item [routerLink]="[menu.path]" *ngIf='menu.data.sidebar'>
+            <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+            <h4 md-line>{{ menu.data.label }}</h4>
+          </md-list-item>
+          <md-list-item *ngIf='!menu.data.sidebar' class="accordion" (click)='toogle(menu.path)'>
+            <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+            <h4 md-line>{{ menu.data.label }}</h4>
+            <!-- 二级菜单 -->
+            <md-list class="menu-child" [ngClass]='{ hidden : open!==menu.path }'>
+              <md-list-item *ngFor='let child of menu.children' [routerLink]="[menu.path+'/'+child.path]">
+                <md-icon md-list-icon>{{ child.data.icon }}</md-icon>
+                <h4 md-line>{{ child.data.label }}</h4>
+              </md-list-item>
+            </md-list>
+          </md-list-item>
+        </div>
       </md-list>
     </md-card-content>
   </md-card>

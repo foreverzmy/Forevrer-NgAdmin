@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from '../core/core.module';
 import { TableListComponent } from './table-list/table-list.component';
 import { FormsComponent } from './forms/forms.component';
+import { PanelsComponent } from './component/panels/panels.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { FormsComponent } from './forms/forms.component';
   declarations: [
     TableListComponent,
     FormsComponent,
+    PanelsComponent,
   ],
   providers: [],
   exports: [],
