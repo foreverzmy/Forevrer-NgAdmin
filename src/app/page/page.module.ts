@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreModule } from '../core/core.module';
-import { TableListComponent } from './table-list/table-list.component';
 import { FormsComponent } from './forms/forms.component';
 import { PanelsComponent } from './component/panels/panels.component';
+import { BaseTableComponent } from './tables/base-table/base-table.component';
+import { DropTableComponent } from './Tables/drop-table/drop-table.component';
 
 @NgModule({
   imports: [
@@ -13,9 +14,10 @@ import { PanelsComponent } from './component/panels/panels.component';
     CoreModule,
   ],
   declarations: [
-    TableListComponent,
     FormsComponent,
     PanelsComponent,
+    BaseTableComponent,
+    DropTableComponent,
   ],
   providers: [],
   exports: [],
