@@ -5,7 +5,7 @@ import { CoreModule } from '../core/core.module';
 import { FormsComponent } from './forms/forms.component';
 import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
-import { DropTableComponent } from './Tables/drop-table/drop-table.component';
+import { DropTableComponent } from './tables/drop-table/drop-table.component';
 
 @NgModule({
   imports: [

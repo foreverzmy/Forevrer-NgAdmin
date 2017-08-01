@@ -16,7 +16,7 @@ interface IBreadcrumb {
 })
 export class BreadcrumbComponent implements OnInit {
   @Input() menus;
-  public breadcrumbs;
+  public breadcrumbs: IBreadcrumb[];
   constructor(
     private _activetedRoute: ActivatedRoute,
     private _route: Router

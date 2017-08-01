@@ -8,7 +8,6 @@
     height: 100vh;
     padding: 0;
   }
-  h4 {}
 }
 
 .sidebar-header {
@@ -32,13 +31,46 @@
   animation: rotation 3s linear infinite;
 }
 
+.menu {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 260px;
+  li>a {
+    &.active {
+      background-color: #3f51b5;
+    }
+    position: relative;
+    display: block;
+    padding: 10px 16px;
+    color: #7d8286;
+    text-decoration: none;
+    box-sizing: border-box;
+    span {
+      display: inline-block;
+      margin-left: 10px;
+      height: 26px;
+      vertical-align: text-bottom;
+      font-size: 20px;
+    }
+  }
+}
+
 .accordion {
-  position: relative;
   .menu-child {
-    position: absolute;
-    top: 33px;
-    left: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 260px;
     background-color: #fff;
+    li>a {
+      &.active {
+        background-color: skyblue;
+      }
+    }
   }
 }
 
@@ -52,10 +84,24 @@
       animation: buttonMove .3s linear both;
     }
   }
+  .menu {
+    width: 60px;
+    overflow: visible;
+    &>li>a {
+      &>span {
+        opacity: 0;
+        display: none;
+        animation: fadeOut .2s linear;
+      }
+    }
+  }
   .accordion {
+    position: relative;
     .menu-child {
-      top: 0;
-      left: 50px;
+      width: 200px;
+      position: absolute;
+      top: 5px;
+      left: 60px;
     }
   }
 }
@@ -69,6 +115,19 @@
     }
     button {
       animation: buttonBack .3s linear both;
+    }
+  }
+  .menu {
+    &>li>a {
+      &>span {
+        display: inline-block;
+        animation: fadeIn .2s linear .1s both;
+      }
+    }
+    .menu-child {
+      &>li>a {
+        padding-left: 50px;
+      }
     }
   }
 }

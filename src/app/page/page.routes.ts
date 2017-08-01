@@ -3,7 +3,7 @@ import { Route } from '@angular/router';
 import { FormsComponent } from './forms/forms.component';
 import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
-import { DropTableComponent } from './Tables/drop-table/drop-table.component';
+import { DropTableComponent } from './tables/drop-table/drop-table.component';
 
 export const PageRoutes: Route[] = [{
   path: 'forms',
@@ -17,7 +17,7 @@ export const PageRoutes: Route[] = [{
   path: 'tables',
   data: {
     label: 'Tables',
-    icon: 'border_all',
+    icon: 'border_all', 
     sidebar: false
   },
   children: [{

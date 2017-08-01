@@ -6,26 +6,31 @@
       <button md-icon-button (click)='adjust()'><md-icon>arrow_back</md-icon></button>
     </div>
     <md-card-content>
-      <md-list>
-        <div *ngFor="let menu of menus">
-          <md-list-item [routerLink]="[menu.path]" *ngIf='menu.data.sidebar'>
-            <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
-            <h4 md-line>{{ menu.data.label }}</h4>
-          </md-list-item>
-          <md-list-item *ngIf='!menu.data.sidebar' class="accordion" (click)='toogle(menu.path)' (mouseover)="showMenu(menu.path)"
-            (mouseout)="hideMenu(menu.path)">
-            <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
-            <h4 md-line>{{ menu.data.label }}</h4>
+      <ul class="menu">
+        <ng-container *ngFor="let menu of menus">
+          <li *ngIf='menu.data.sidebar'>
+            <a [routerLink]="[menu.path]" [ngClass]="{active:activeBars[0] === menu.path}">
+              <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+              <span md-line>{{ menu.data.label }}</span>
+            </a>
+          </li>
+          <li *ngIf='!menu.data.sidebar' class="accordion" (mouseover)="showMenu(menu.path)" (mouseout)="hideMenu(menu.path)">
+            <a (click)='toogle(menu.path)' [ngClass]="{active:activeBars[0] === menu.path}">
+              <md-icon md-list-icon>{{ menu.data.icon }}</md-icon>
+              <span md-line>{{ menu.data.label }}</span>
+            </a>
             <!-- 二级菜单 -->
-            <md-list class="menu-child" [ngClass]='{ hidden : open!==menu.path }'>
-              <md-list-item *ngFor='let child of menu.children' [routerLink]="[menu.path+'/'+child.path]">
-                <md-icon md-list-icon>{{ child.data.icon }}</md-icon>
-                <h4 md-line>{{ child.data.label }}</h4>
-              </md-list-item>
-            </md-list>
-          </md-list-item>
-        </div>
-      </md-list>
+            <ul class="menu-child" [ngClass]='{ hidden : open!==menu.path }'>
+              <li *ngFor='let child of menu.children'>
+                <a [routerLink]="[menu.path+'/'+child.path]" [ngClass]="{active:activeBars[1] === child.path}">
+                  <md-icon md-list-icon>{{ child.data.icon }}</md-icon>
+                  <span md-line>{{ child.data.label }}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
     </md-card-content>
   </md-card>
 </div>

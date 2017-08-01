@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { MainRoutes } from '../main.routes';
 
 @Component({
@@ -9,12 +9,19 @@ import { MainRoutes } from '../main.routes';
 })
 export class SidebarComponent implements OnInit {
   @Input() menus;
-  public ismMinify = false;
+  public ismMinify = true;
   public open: string;
-  constructor() {
+  public activeBars: string[];
+  constructor(private _route: Router) {
   }
 
   ngOnInit() {
+    this.getActiveRoute();
+    this._route.events
+      .filter(e => e instanceof NavigationEnd)
+      .subscribe(e => {
+        this.getActiveRoute();
+      });
   }
   // 放大缩小侧边栏
   adjust() {
@@ -24,20 +31,24 @@ export class SidebarComponent implements OnInit {
   // 二级菜单伸缩
   toogle(path: string) {
     if (this.ismMinify === false) {
-      this.open = path;
+      this.open = this.open === path ? '' : path;
     }
   }
-
+  // 显示菜单
   showMenu(path: string) {
     if (this.ismMinify === true) {
       this.open = path;
     }
   }
-
+  // 隐藏菜单
   hideMenu(path: string) {
     if (this.ismMinify === true) {
       this.open = '';
     }
+  }
+  // 获取活动路由
+  getActiveRoute() {
+    this.activeBars = this._route.url.split('/').slice(2);
   }
 
 }
