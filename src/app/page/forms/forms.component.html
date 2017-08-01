@@ -1,3 +1,67 @@
-<p>
-  forms works!
-</p>
+<div class="container row">
+  <md-card class="card col-md-8 col-sm-10 col-md-offset-2">
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="First Name" [(ngModel)]="firstName" value="Ci" name="firstName">
+          </md-input-container>
+        </div>
+        <div class="col-md-6">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="Last Name" [(ngModel)]="lastName" value="Clia" name="lastName">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <md-input-container color="accent">
+            <input mdInput type="email" placeholder="Address" [formControl]="emailFormControl">
+          </md-input-container>
+          <md-error *ngIf="emailFormControl.hasError('pattern')">
+            Please enter a valid email address
+          </md-error>
+          <md-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </md-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="Address">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="City">
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="Country">
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container color="accent">
+            <input mdInput type="text" placeholder="Postcode">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="textarea-label">About Me</label>
+          <md-input-container color="accent">
+            <textarea mdInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row action-btn">
+        <button md-raised-button type="submit" class="btn btn-rose">UPDATE PROFILE</button>
+      </div>
+    </form>
+
+  </md-card>
+</div>

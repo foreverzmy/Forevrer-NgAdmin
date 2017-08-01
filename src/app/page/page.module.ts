@@ -9,7 +9,6 @@ import { DropTableComponent } from './tables/drop-table/drop-table.component';
 
 @NgModule({
   imports: [
-    // RouterModule.forChild(PageRoutes),
     CommonModule,
     CoreModule,
   ],
