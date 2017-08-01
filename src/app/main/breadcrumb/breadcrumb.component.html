@@ -1,5 +1,8 @@
-<ol class="breadcrumb">
-  <li *ngFor="let menu of breadcrumbs">
-    <a [routerLink]="[menu.url, menu.params]">{{menu.label}}</a>
-  </li>
-</ol>
+<div class="content">
+  <ol class="breadcrumb">
+    <li *ngFor="let menu of breadcrumbs">
+      <a [routerLink]="[menu.url, menu.params]">{{menu.label}}</a>
+    </li>
+  </ol>
+  <button md-button (click)='back()'><md-icon>reply</md-icon></button>
+</div>

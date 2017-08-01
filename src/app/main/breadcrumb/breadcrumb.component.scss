@@ -1,0 +1,16 @@
+.content {
+  background-color: #fff;
+  width: 100%;
+  .breadcrumb {
+    li {
+      font-size: 15px;
+      &:first-child {
+        margin-left: 20px;
+      }
+    }
+  }
+  button {
+    float: right;
+    margin-top: -57px;
+  }
+}

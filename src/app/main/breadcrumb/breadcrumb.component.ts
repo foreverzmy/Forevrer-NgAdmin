@@ -19,7 +19,8 @@ export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: IBreadcrumb[];
   constructor(
     private _activetedRoute: ActivatedRoute,
-    private _route: Router
+    private _route: Router,
+    public _location: Location,
   ) { }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class BreadcrumbComponent implements OnInit {
         this.breadcrumbs = this.getBreadcrumbs(root);
       });
   }
-
+  // 获取当前路由
   getBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
     const children: ActivatedRoute[] = route.children;
     if (children.length === 0) {
@@ -63,4 +64,9 @@ export class BreadcrumbComponent implements OnInit {
     return breadcrumbs;
   }
 
+
+  // 返回上一页
+  back() {
+    this._location.back();
+  }
 }
