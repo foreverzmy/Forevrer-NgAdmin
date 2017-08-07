@@ -1,52 +1,48 @@
 <div class="container row">
   <md-card class="card col-md-8 col-sm-10 col-md-offset-2">
-    <form>
+    <form [formGroup]="myForm" (submit)='submit()'>
       <div class="row">
         <div class="col-md-6">
           <md-input-container color="accent">
-            <input mdInput type="text" placeholder="First Name" [(ngModel)]="firstName" value="Ci" name="firstName">
+            <input mdInput type="text" placeholder="First Name" formControlName="firstName">
           </md-input-container>
+          <md-error *ngIf="myForm.controls.firstName.touched && myForm.controls.firstName.hasError('required')">
+            First Name is <strong>required</strong> !
+          </md-error>
         </div>
         <div class="col-md-6">
           <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Last Name" [(ngModel)]="lastName" value="Clia" name="lastName">
+            <input mdInput type="text" placeholder="Last Name" formControlName="lastName">
           </md-input-container>
+          <md-error *ngIf="myForm.controls.lastName.touched && myForm.controls.lastName.hasError('required')">
+            Last Name is <strong>required</strong> !
+          </md-error>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <md-input-container color="accent">
-            <input mdInput type="email" placeholder="Address" [formControl]="emailFormControl">
+            <input mdInput type="email" placeholder="Email" formControlName="email">
           </md-input-container>
-          <md-error *ngIf="emailFormControl.hasError('pattern')">
+          <md-error *ngIf="myForm.controls.email.touched && myForm.controls.email.hasError('email')">
             Please enter a valid email address
           </md-error>
-          <md-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </md-error>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Address">
-          </md-input-container>
-        </div>
-      </div>
-      <div class="row">
+      <div class="row" formGroupName="address">
         <div class="col-md-4">
           <md-input-container color="accent">
-            <input mdInput type="text" placeholder="City">
+            <input mdInput type="text" placeholder="City" formControlName="city">
           </md-input-container>
         </div>
         <div class="col-md-4">
           <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Country">
+            <input mdInput type="text" placeholder="Country" formControlName="country">
           </md-input-container>
         </div>
         <div class="col-md-4">
           <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Postcode">
+            <input mdInput type="text" placeholder="Postcode" formControlName="postcode">
           </md-input-container>
         </div>
       </div>
@@ -54,12 +50,16 @@
         <div class="col-md-12">
           <label class="textarea-label">About Me</label>
           <md-input-container color="accent">
-            <textarea mdInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+            <textarea mdInput placeholder="Say somethings your are interesting." formControlName="about"></textarea>
           </md-input-container>
+          <md-error *ngIf="myForm.controls.about.dirty && myForm.controls.about.hasError('maxlength')">
+            Please enter a valid email address
+          </md-error>
         </div>
       </div>
       <div class="row action-btn">
-        <button md-raised-button type="submit" class="btn btn-rose">UPDATE PROFILE</button>
+        <button md-raised-button type="submit" class="btn btn-rose">Submit</button>
+        <button md-raised-button type="submit" class="btn btn-rose" (click)='myForm.reset()'>Reset</button>
       </div>
     </form>
 

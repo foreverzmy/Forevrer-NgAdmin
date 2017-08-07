@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -9,17 +9,34 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-  public emailFormControl: FormControl;
-  constructor() { }
+  public myForm: FormGroup;
+
+  constructor(public _fb: FormBuilder) { }
 
   ngOnInit() {
-    this.emailFormControl = new FormControl('',
-      [
-        Validators.required,
-        Validators.pattern(EMAIL_REGEX)
-      ]
-    );
+    this.createForm();
+  }
 
+  createForm() {
+    this.myForm = this._fb.group({
+      firstName: ['Mervyn', Validators.required],
+      lastName: ['Zhang', Validators.required],
+      email: ['foreverzmyer@gmail.com', Validators.email],
+      address: this._fb.group({
+        city: ['', Validators.required],
+        country: ['', Validators.required],
+        postcode: ['', [Validators.required, Validators.pattern(/^\d+$/)]]
+      }),
+      about: ['', [Validators.required, Validators.maxLength(5)]]
+    });
+  }
+
+  formChanged() {
+    this.myForm.valueChanges.subscribe(data => console.log(data));
+  }
+
+  submit() {
+    console.log(this.myForm.value);
   }
 
 }
