@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { CityService } from '../../services/forms/city.service';
 
 @Component({
@@ -23,11 +23,13 @@ export class FormsComponent implements OnInit {
     this.createForm();
     this.getCity();
   }
-
+  // 创建响应式表单
   createForm() {
     this.myForm = this._fb.group({
       firstName: ['Mervyn', Validators.required],
       lastName: ['Zhang', Validators.required],
+      sex: ['', Validators.required],
+      hobby: [this._fb.array([]), Validators.required],
       email: ['foreverzmyer@gmail.com', Validators.email],
       address: this._fb.group({
         country: [''],
@@ -47,11 +49,11 @@ export class FormsComponent implements OnInit {
   submit() {
     console.log(this.myForm.value);
   }
-
+  // 获取国家和城市列表
   getCity() {
     this._city.getCity().subscribe(data => this.countries = data);
   }
-
+  // 联动选择
   choose(level, key) {
     switch (level) {
       case 1:

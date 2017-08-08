@@ -20,6 +20,21 @@
         </div>
       </div>
       <div class="row">
+        <section class="col-md-6 sex-section">
+          <label class="sex-margin">Sex:</label>
+          <md-radio-group formControlName='sex'>
+            <md-radio-button class="sex-margin" value="m"> Male </md-radio-button>
+            <md-radio-button class="sex-margin" value="f"> Female </md-radio-button>
+          </md-radio-group>
+        </section>
+        <section class="col-md-6 sex-section">
+          <label class="sex-margin">Hobby:</label>
+          <md-checkbox class="sex-margin" value="music" formControlName='hobby'>Music</md-checkbox>
+          <md-checkbox class="sex-margin" value="movies" formControlName='hobby'>Movies</md-checkbox>
+          <md-checkbox class="sex-margin" value="sports" formControlName='hobby'>Sports</md-checkbox>
+        </section>
+      </div>
+      <div class="row">
         <div class="col-md-12">
           <md-input-container color="accent">
             <input mdInput type="email" placeholder="Email" formControlName="email">

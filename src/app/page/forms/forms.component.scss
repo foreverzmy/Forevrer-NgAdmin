@@ -14,6 +14,16 @@
   height: 90px;
 }
 
+.sex-section {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  height: 60px;
+  .sex-margin {
+    margin: 0 10px 0 0;
+  }
+}
+
 .textarea-label {
   color: #aaa;
   margin-bottom: 10px;
