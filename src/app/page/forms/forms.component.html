@@ -30,35 +30,48 @@
         </div>
       </div>
       <div class="row" formGroupName="address">
-        <div class="col-md-4">
-          <md-input-container color="accent">
-            <input mdInput type="text" placeholder="City" formControlName="city">
-          </md-input-container>
+        <div class="col-md-3">
+          <md-select placeholder="Country" formControlName="country" #country (change)='choose(1,country.selected.value)'>
+            <md-option *ngFor="let country of countries;let idx=index" [value]="idx">
+              {{ country.n }}
+            </md-option>
+          </md-select>
         </div>
-        <div class="col-md-4">
-          <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Country" formControlName="country">
-          </md-input-container>
+        <div class="col-md-3" *ngIf='!!provinces'>
+          <md-select placeholder="Province" formControlName="province" #province (change)='choose(2,province.selected.value)' required>
+            <md-option *ngFor="let province of provinces;let idx=index" [value]="idx">
+              {{ province.n }}
+            </md-option>
+          </md-select>
         </div>
-        <div class="col-md-4">
-          <md-input-container color="accent">
-            <input mdInput type="text" placeholder="Postcode" formControlName="postcode">
-          </md-input-container>
+        <div class="col-md-3" *ngIf='!!cities'>
+          <md-select placeholder="City" formControlName="city" #city (change)='choose(3,city.selected.value)' required>
+            <md-option *ngFor="let city of cities;let idx=index" [value]="idx">
+              {{ city.n }}
+            </md-option>
+          </md-select>
+        </div>
+        <div class="col-md-3" *ngIf='!!districts'>
+          <md-select placeholder="District" formControlName="district" required>
+            <md-option *ngFor="let district of districts;let idx=index" [value]="idx">
+              {{ district.n }}
+            </md-option>
+          </md-select>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <label class="textarea-label">About Me</label>
           <md-input-container color="accent">
-            <textarea mdInput placeholder="Say somethings your are interesting." formControlName="about"></textarea>
+            <textarea mdInput placeholder="Say somethings your are interesting:" formControlName="about"></textarea>
           </md-input-container>
           <md-error *ngIf="myForm.controls.about.dirty && myForm.controls.about.hasError('maxlength')">
             Please enter a valid email address
           </md-error>
         </div>
       </div>
-      <div class="row action-btn">
-        <button md-raised-button type="submit" class="btn btn-rose">Submit</button>
+      <div class="row action-btn button-row">
+        <button md-raised-button type="submit" class="btn btn-rose" [disabled]='myForm.status==="INVALID"'>Submit</button>
         <button md-raised-button type="submit" class="btn btn-rose" (click)='myForm.reset()'>Reset</button>
       </div>
     </form>
