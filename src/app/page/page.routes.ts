@@ -1,23 +1,40 @@
 import { Route } from '@angular/router';
 
-import { FormsComponent } from './forms/forms.component';
+import { BaseFormComponent } from './forms/base-form/base-form.component';
+import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
 import { DropTableComponent } from './tables/drop-table/drop-table.component';
 
 export const PageRoutes: Route[] = [{
   path: 'forms',
-  component: FormsComponent,
   data: {
     label: 'Forms',
     icon: 'border_color',
-    sidebar: true
-  }
+    sidebar: false
+  },
+  children: [{
+    path: 'baseForm',
+    component: BaseFormComponent,
+    data: {
+      label: 'Base Forms',
+      icon: 'border_color',
+      sidebar: true
+    }
+  }, {
+    path: 'reactiveForm',
+    component: ReactiveFormComponent,
+    data: {
+      label: 'Reactive Forms',
+      icon: 'border_color',
+      sidebar: true
+    }
+  }]
 }, {
   path: 'tables',
   data: {
     label: 'Tables',
-    icon: 'border_all', 
+    icon: 'border_all',
     sidebar: false
   },
   children: [{

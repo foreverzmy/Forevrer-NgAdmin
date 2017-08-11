@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { CityService } from '../../services/forms/city.service';
+import { CityService } from '../../../services/forms/city.service';
 
 @Component({
-  selector: 'app-forms',
-  templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss']
+  selector: 'app-reactive-form',
+  templateUrl: './reactive-form.component.html',
+  styleUrls: ['./reactive-form.component.scss']
 })
-export class FormsComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit {
   public myForm: FormGroup;
   public countries: any[];
   public provinces: any[];
@@ -29,7 +29,11 @@ export class FormsComponent implements OnInit {
       firstName: ['Mervyn', Validators.required],
       lastName: ['Zhang', Validators.required],
       sex: ['', Validators.required],
-      hobby: [this._fb.array([]), Validators.required],
+      hobbies: this._fb.group({
+        music: [false],
+        movies: [false],
+        sports: [false]
+      }),
       email: ['foreverzmyer@gmail.com', Validators.email],
       address: this._fb.group({
         country: [''],
@@ -40,7 +44,10 @@ export class FormsComponent implements OnInit {
       }),
       about: ['', [Validators.required, Validators.maxLength(50)]]
     });
+    console.log(this.myForm);
   }
+
+
 
   formChanged() {
     this.myForm.valueChanges.subscribe(data => console.log(data));
@@ -76,3 +83,4 @@ export class FormsComponent implements OnInit {
   }
 
 }
+

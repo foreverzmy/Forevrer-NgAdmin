@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { SidebarPipe } from './pipe/sidebar.pipe';
 
@@ -11,7 +11,8 @@ import { SidebarPipe } from './pipe/sidebar.pipe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MdNativeDateModule
   ],
   declarations: [
     FormGroupComponent,

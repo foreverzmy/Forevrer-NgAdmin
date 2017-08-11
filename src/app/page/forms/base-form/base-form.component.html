@@ -1,0 +1,50 @@
+<div class="container row">
+  <md-card class="card col-md-8 col-sm-10 col-md-offset-2">
+    <form #f="ngForm" (ngSubmit)='onSubmit(f.value)'>
+      <div class="row">
+        <div class="col-md-12">
+          <md-input-container color="accent">
+            <input mdInput type="text" name="name" placeholder="Name" required ngModel #name="ngModel">
+          </md-input-container>
+          <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+            <md-error *ngIf="name.errors.required">
+              Name is <strong>required</strong> !
+            </md-error>
+          </ng-container>
+        </div>
+      </div>
+      <div class="row">
+        <section class="col-md-6 section">
+          <label class="sex-margin">Sex:</label>
+          <md-radio-group name='sex' ngModel required #sex='ngModel'>
+            <md-radio-button class="margin" value="m"> Male </md-radio-button>
+            <md-radio-button class="margin" value="f"> Female </md-radio-button>
+          </md-radio-group>
+        </section>
+        <div class="col-md-3">
+          <md-input-container>
+            <input mdInput [mdDatepicker]="picker" placeholder="Birthday" name='birthday' required ngModel>
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+          </md-input-container>
+          <md-datepicker #picker></md-datepicker>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 ">
+          <md-select placeholder="Hobby:" name="hobby" required ngModel>
+            <md-option value='music'> Music </md-option>
+          </md-select>
+        </div>
+        <div class="col-md-8">
+          <label>Age:</label>
+          <md-slider name='age' [max]="100" [min]="0" [step]="1" [thumb-label]=true [invert]=false [tick-interval]=true required ngModel>
+          </md-slider>
+        </div>
+      </div>
+      <div class="row action-btn button-row">
+        <button md-raised-button type="submit" [disabled]='f.invalid' class="btn btn-rose">Submit</button>
+        <button md-raised-button type="submit" class="btn btn-rose">Reset</button>
+      </div>
+    </form>
+  </md-card>
+</div>

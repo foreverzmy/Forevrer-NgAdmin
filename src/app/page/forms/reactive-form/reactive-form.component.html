@@ -27,11 +27,11 @@
             <md-radio-button class="sex-margin" value="f"> Female </md-radio-button>
           </md-radio-group>
         </section>
-        <section class="col-md-6 sex-section">
+        <section class="col-md-6 sex-section" formGroupName='hobbies'>
           <label class="sex-margin">Hobby:</label>
-          <md-checkbox class="sex-margin" value="music" formControlName='hobby'>Music</md-checkbox>
-          <md-checkbox class="sex-margin" value="movies" formControlName='hobby'>Movies</md-checkbox>
-          <md-checkbox class="sex-margin" value="sports" formControlName='hobby'>Sports</md-checkbox>
+          <md-checkbox class="sex-margin" formControlName='music'>Music</md-checkbox>
+          <md-checkbox class="sex-margin" formControlName='movies'>Movies</md-checkbox>
+          <md-checkbox class="sex-margin" formControlName='sports'>Sports</md-checkbox>
         </section>
       </div>
       <div class="row">
