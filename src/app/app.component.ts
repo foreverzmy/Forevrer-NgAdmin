@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Options } from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  public options: Options;
+  constructor() {
+    this.options = {
+      position: ['bottom', 'right'],
+      animate: 'scale',
+      timeOut: 3000,
+      pauseOnHover: true,
+      showProgressBar: false,
+      clickToClose: false,
+    };
+  }
 }

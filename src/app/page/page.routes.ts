@@ -6,6 +6,8 @@ import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
 import { DropTableComponent } from './tables/drop-table/drop-table.component';
 import { TabsComponent } from './component/tabs/tabs.component';
+import { NotificationsComponent } from './component/notifications/notifications.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 export const PageRoutes: Route[] = [{
   path: 'forms',
@@ -76,6 +78,22 @@ export const PageRoutes: Route[] = [{
     data: {
       label: 'Tabs',
       icon: 'content_paste',
+      sidebar: true
+    }
+  }, {
+    path: 'dialog',
+    component: DialogComponent,
+    data: {
+      label: 'Dialog',
+      icon: 'pages',
+      sidebar: true
+    }
+  }, {
+    path: 'notifications',
+    component: NotificationsComponent,
+    data: {
+      label: 'notifications',
+      icon: 'notifications',
       sidebar: true
     }
   }]

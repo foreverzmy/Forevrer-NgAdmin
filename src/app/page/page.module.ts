@@ -9,6 +9,8 @@ import { DropTableComponent } from './tables/drop-table/drop-table.component';
 import { BaseFormComponent } from './forms/base-form/base-form.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { TabsComponent } from './component/tabs/tabs.component';
+import { NotificationsComponent } from './component/notifications/notifications.component';
+import { DialogComponent, OpenDialogComponent } from './component/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -23,8 +25,14 @@ import { TabsComponent } from './component/tabs/tabs.component';
     BaseFormComponent,
     PanelsComponent,
     TabsComponent,
+    NotificationsComponent,
+    DialogComponent,
+    OpenDialogComponent,
   ],
   providers: [],
   exports: [],
+  entryComponents: [
+    OpenDialogComponent
+  ]
 })
 export class PageModule { }

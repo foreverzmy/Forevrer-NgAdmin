@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { routes } from './app.routes';
 
@@ -17,6 +18,7 @@ import { MainModule } from './main/main.module';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
+    SimpleNotificationsModule.forRoot(),
     // MainModule
   ],
   providers: [],
