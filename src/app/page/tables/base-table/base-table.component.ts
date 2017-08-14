@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk';
+
+import { TiobeService } from '../../../services/table/tiobe.service';
 
 @Component({
   selector: 'app-base-table',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _tiobe: TiobeService
+  ) { }
 
   ngOnInit() {
+    this.getTiobe();
+  }
+
+  getTiobe() {
+    this._tiobe.getTiobe()
+      .subscribe(x => console.log(x));
+  }
+
+  tableDatabase() {
+
   }
 
 }

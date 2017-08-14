@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
 import { CityService } from './forms/city.service';
+import { TiobeService } from './table/tiobe.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,10 @@ import { CityService } from './forms/city.service';
   ],
   declarations: [
   ],
-  providers: [CityService],
+  providers: [
+    CityService,
+    TiobeService
+  ],
   exports: [],
 })
 export class ServicesModule { }

@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { SidebarPipe } from './pipe/sidebar.pipe';
+
 
 @NgModule({
   imports: [
@@ -12,7 +14,8 @@ import { SidebarPipe } from './pipe/sidebar.pipe';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    CdkTableModule
   ],
   declarations: [
     FormGroupComponent,
@@ -24,7 +27,8 @@ import { SidebarPipe } from './pipe/sidebar.pipe';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    SidebarPipe
+    SidebarPipe,
+    CdkTableModule
   ]
 })
 

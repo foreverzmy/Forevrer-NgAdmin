@@ -3,6 +3,8 @@
   height: 100vh;
   background-color: #fff;
   width: 260px;
+  z-index: 9;
+  position: relative;
   md-card {
     height: 100vh;
     padding: 0;

@@ -44,7 +44,6 @@ export class ReactiveFormComponent implements OnInit {
       }),
       about: ['', [Validators.required, Validators.maxLength(50)]]
     });
-    console.log(this.myForm);
   }
 
 

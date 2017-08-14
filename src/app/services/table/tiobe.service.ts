@@ -7,18 +7,17 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class CityService {
+export class TiobeService {
 
   constructor(
     private _http: Http
   ) { }
 
-  getCity() {
-    return this._http.get('assets/data/cities.json')
+  getTiobe() {
+    return this._http.get('assets/data/tiobe.json')
       .map(this.extractData)
       .catch(this.handleError);
   }
-
   private extractData(res: Response) {
     const body = res.json();
     return body || {};
@@ -37,6 +36,4 @@ export class CityService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
 }
-  
