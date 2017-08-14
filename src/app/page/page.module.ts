@@ -8,6 +8,7 @@ import { BaseTableComponent } from './tables/base-table/base-table.component';
 import { DropTableComponent } from './tables/drop-table/drop-table.component';
 import { BaseFormComponent } from './forms/base-form/base-form.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
+import { TabsComponent } from './component/tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -16,11 +17,12 @@ import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.compo
     ServicesModule
   ],
   declarations: [
-    PanelsComponent,
     BaseTableComponent,
     DropTableComponent,
     ReactiveFormComponent,
     BaseFormComponent,
+    PanelsComponent,
+    TabsComponent,
   ],
   providers: [],
   exports: [],

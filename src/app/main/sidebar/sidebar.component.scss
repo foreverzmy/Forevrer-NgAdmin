@@ -18,6 +18,7 @@
   background-size: auto 100%;
   padding: 10px;
   color: #fff;
+  overflow: hidden;
   button {
     position: absolute;
     right: 0;
@@ -40,6 +41,7 @@
   box-sizing: border-box;
   width: 260px;
   li>a {
+    white-space: nowrap;
     &.active {
       background-color: #3f51b5;
     }
@@ -89,6 +91,7 @@
     width: 60px;
     overflow: visible;
     &>li>a {
+      animation: minify .3s linear both;
       &>span {
         opacity: 0;
         display: none;
@@ -120,6 +123,7 @@
   }
   .menu {
     &>li>a {
+      animation: magnify .3s linear;
       &>span {
         display: inline-block;
         animation: fadeIn .2s linear .1s both;

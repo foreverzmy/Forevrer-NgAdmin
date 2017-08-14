@@ -5,6 +5,7 @@ import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.compo
 import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
 import { DropTableComponent } from './tables/drop-table/drop-table.component';
+import { TabsComponent } from './component/tabs/tabs.component';
 
 export const PageRoutes: Route[] = [{
   path: 'forms',
@@ -18,7 +19,7 @@ export const PageRoutes: Route[] = [{
     component: BaseFormComponent,
     data: {
       label: 'Base Forms',
-      icon: 'border_color',
+      icon: 'playlist_add',
       sidebar: true
     }
   }, {
@@ -26,7 +27,7 @@ export const PageRoutes: Route[] = [{
     component: ReactiveFormComponent,
     data: {
       label: 'Reactive Forms',
-      icon: 'border_color',
+      icon: 'note_add',
       sidebar: true
     }
   }]
@@ -67,6 +68,14 @@ export const PageRoutes: Route[] = [{
     data: {
       label: 'Panels',
       icon: 'view_agenda',
+      sidebar: true
+    }
+  }, {
+    path: 'tabs',
+    component: TabsComponent,
+    data: {
+      label: 'Tabs',
+      icon: 'content_paste',
       sidebar: true
     }
   }]
