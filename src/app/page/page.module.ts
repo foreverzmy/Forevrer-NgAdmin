@@ -10,7 +10,7 @@ import { BaseFormComponent } from './forms/base-form/base-form.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { TabsComponent } from './component/tabs/tabs.component';
 import { NotificationsComponent } from './component/notifications/notifications.component';
-import { DialogComponent, OpenDialogComponent } from './component/dialog/dialog.component';
+import { DialogComponent, OpenDialogComponent, SelectDialogComponent } from './component/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -28,11 +28,13 @@ import { DialogComponent, OpenDialogComponent } from './component/dialog/dialog.
     NotificationsComponent,
     DialogComponent,
     OpenDialogComponent,
+    SelectDialogComponent,
   ],
   providers: [],
   exports: [],
   entryComponents: [
-    OpenDialogComponent
+    OpenDialogComponent,
+    SelectDialogComponent
   ]
 })
 export class PageModule { }
