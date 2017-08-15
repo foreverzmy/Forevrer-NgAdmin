@@ -27,8 +27,8 @@ $ npm start
 - [ ] 图片处理和上传
 - [ ] 图表
 - [x] Tabs
-- [ ] Dialog
-- [ ] Notification
+- [x] Dialog
+- [x] Notification
 - [ ] 富文本编辑器
 - [ ] Theme
 
