@@ -46,25 +46,27 @@ export class ReactiveFormComponent implements OnInit {
     });
   }
 
-
-
   formChanged() {
     this.myForm.valueChanges.subscribe(data => console.log(data));
   }
 
   submit() {
+    this.getCity();
     console.log(this.myForm.value);
   }
   // 获取国家和城市列表
   getCity() {
-    this._city.getCity().subscribe(data => this.countries = data);
+    this._city.getCity().subscribe(data => console.log(data));
+    // this.countries = data
   }
   // 联动选择
   choose(level, key) {
     switch (level) {
       case 1:
         this.provinces = this.countries[key].s;
-        this.myForm.patchValue({ address: { province: '', city: '', district: '' } });
+        this.myForm.patchValue({
+          address: { province: '', city: '', district: '' }
+        });
         delete this.cities;
         delete this.districts;
         break;

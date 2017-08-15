@@ -5,9 +5,11 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { routes } from './app.routes';
 
+
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
+
 
 @NgModule({
   declarations: [
