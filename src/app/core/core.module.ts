@@ -40,7 +40,7 @@ const interceptorFactory = (backend: XHRBackend, defaultOptions: RequestOptions,
     {
       provide: Http,
       useFactory: interceptorFactory,
-      deps: [XHRBackend, RequestOptions]
+      deps: [XHRBackend, RequestOptions, NotificationsService]
     },
   ],
   exports: [

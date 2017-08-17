@@ -15,8 +15,8 @@ export class CityService {
 
   getCity() {
     return this._http.get('assets/data/cities.json')
-      .map(this.extractData)
-      .catch(this.handleError);
+    // .map(this.extractData)
+    // .catch(this.handleError);
   }
 
   private extractData(res: Response) {

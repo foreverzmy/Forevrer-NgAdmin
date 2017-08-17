@@ -83,7 +83,7 @@ export class HttpInterceptorService extends Http {
 
   private handleError(error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
-    this._notificationsService.error('sdsd');
+    this._notificationsService.error(error);
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -92,7 +92,6 @@ export class HttpInterceptorService extends Http {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   }
 }
