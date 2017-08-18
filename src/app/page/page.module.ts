@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreModule } from '../core/core.module';
-import { ServicesModule } from '../services/services.module';
 import { PanelsComponent } from './component/panels/panels.component';
 import { BaseTableComponent } from './tables/base-table/base-table.component';
 import { DropTableComponent } from './tables/drop-table/drop-table.component';
@@ -16,7 +15,6 @@ import { DialogComponent, OpenDialogComponent, SelectDialogComponent } from './c
   imports: [
     CommonModule,
     CoreModule,
-    ServicesModule
   ],
   declarations: [
     BaseTableComponent,

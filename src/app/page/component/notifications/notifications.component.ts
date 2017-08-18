@@ -16,6 +16,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   showSuccess() {
+    console.log();
     this._notificationsService.success('Title', 'content');
   }
 

@@ -56,8 +56,7 @@ export class ReactiveFormComponent implements OnInit {
   }
   // 获取国家和城市列表
   getCity() {
-    this._city.getCity().subscribe(data => console.log(data));
-    // this.countries = data
+    this._city.getCity().subscribe((data: any[]) => { this.countries = data; });
   }
   // 联动选择
   choose(level, key) {
