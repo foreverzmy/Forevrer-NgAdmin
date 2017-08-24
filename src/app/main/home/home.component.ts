@@ -7,7 +7,7 @@ import { PageRoutes } from '../../page/page.routes';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private menus;
+  public menus;
 
   constructor() { }
 
